@@ -4,9 +4,12 @@ import "./App.css";
 function App() {
 	return (
 		<div className="App">
-			<h1>Hello World</h1>
+			<h1>Task 1</h1>
+			<h3>Hello World</h3>
 			<Counter />
 			<FormComponent />
+			<h1>Task 2</h1>
+			<ImageComponent />
 		</div>
 	);
 }
@@ -47,6 +50,23 @@ function FormComponent() {
 			<input value={phoneNo} onChange={(e) => setPhoneNo(Number(e.target.value))} type="number" />
 			<button>Submit</button>
 		</form>
+	);
+}
+
+function ImageComponent() {
+	const [imgToggle, setImgToggle] = useState(false);
+
+	return (
+		<div>
+			<button onClick={() => setImgToggle((last) => !last)}>{imgToggle ? "Hide Image" : "Show Image"}</button>
+			<br></br>
+			{imgToggle && (
+				<img
+					src="https://media.istockphoto.com/id/915681526/photo/bandra-worli-sea-link-mumbai.jpg?s=1024x1024&w=is&k=20&c=L5ZbPXc0iBCgz7zL6nP-Det8lXCLXeUxxBW8TBNPLVQ="
+					alt="Some image"
+				/>
+			)}
+		</div>
 	);
 }
 export default App;
